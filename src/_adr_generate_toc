@@ -54,12 +54,18 @@ then
     echo
 fi
 
+echo "| Name | Date | Status | Supercedes |"
+
+echo "| ---- | ---- | ------ | ---------- |"
 for f in $("$adr_bin_dir/adr-list")
 do
     title=$("$adr_bin_dir/_adr_title" $f)
     link=${link_prefix}$(basename $f)
+    status=$("$adr_bin_dir/_adr_status" $f)
+    adrdato=$("$adr_bin_dir/_adr_date" $f)
+    supercedes=$("$adr_bin_dir/_adr_supercedes" $f)
 
-    echo "* [$title]($link)"
+    echo "| [$title]($link) | $adrdato | $status | $supercedes |"
 done
 
 if [ ! -z $outro ]

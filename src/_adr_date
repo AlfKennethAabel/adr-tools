@@ -1,0 +1,2 @@
+#!/bin/bash
+awk '/^Date:/,/^#/ { 	if (!/^(#|\s*$)/) print}' $1 | tr -d 'Date:'
