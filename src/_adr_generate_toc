@@ -54,9 +54,9 @@ then
     echo
 fi
 
-echo "| Name | Date | Status | Supercedes |"
+echo "| Name | Date | Status | Supercedes | Pull request |"
 
-echo "| ---- | ---- | ------ | ---------- |"
+echo "| ---- | ---- | ------ | ---------- | ------------ |"
 for f in $("$adr_bin_dir/adr-list")
 do
     title=$("$adr_bin_dir/_adr_title" $f)
@@ -64,8 +64,9 @@ do
     status=$("$adr_bin_dir/_adr_status" $f)
     adrdato=$("$adr_bin_dir/_adr_date" $f)
     supercedes=$("$adr_bin_dir/_adr_supercedes" $f)
+    pullrequest=$("$adr_bin_dir/_adr_pullrequest" $f)
 
-    echo "| [$title]($link) | $adrdato | $status | $supercedes |"
+    echo "| [$title]($link) | $adrdato | $status | $supercedes | $pullrequest |"
 done
 
 if [ ! -z $outro ]
